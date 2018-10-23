@@ -1,7 +1,10 @@
-<h1>Fridges#index</h1>
+<h1>Fridges <a href="/fridges/new">(+)</a></h1>
 <ul>
   <% @fridges.each do |fridge| %>
-    <li><%= fridge.location %></li>
+    <li>
+      <a href="/fridges/<%= fridge.id%>">
+        <%= fridge.location%>
+      </a>
+    </li>
   <%end%>
 </ul>
-<p>Find me in app/views/fridges/index.html.erb</p>

@@ -10,10 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_23_182706) do
+ActiveRecord::Schema.define(version: 2018_10_23_193340) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "drinks", force: :cascade do |t|
+    t.string "name"
+    t.integer "size"
+    t.boolean "alcoholic"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "foods", force: :cascade do |t|
+    t.string "name"
+    t.integer "weight"
+    t.boolean "vegan"
+    t.string "timestamp"
+    t.bigint "fridge_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["fridge_id"], name: "index_foods_on_fridge_id"
+  end
 
   create_table "fridges", force: :cascade do |t|
     t.string "location"
@@ -23,4 +42,5 @@ ActiveRecord::Schema.define(version: 2018_10_23_182706) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "foods", "fridges"
 end

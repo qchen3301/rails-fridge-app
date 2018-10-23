@@ -8,3 +8,4 @@ kitchen = Fridge.create(
     brand: "GE",
     size: 25 )
 
+
