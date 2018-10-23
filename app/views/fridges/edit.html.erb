@@ -1,6 +1,10 @@
 <h1>Editing Fridge</h1>
 
-<%= render 'form', fridge: @fridge %>
-
-<%= link_to 'Show', @fridge %> |
-<%= link_to 'Back', fridges_path %>
+<%= form_for @fridge do |form| %>
+    <%= form.text_field :location %> <br>
+    <%= form.text_field :brand%> <br>
+    <%= form.text_field :size%> <br>
+    <%= form.submit %> <br>
+<% end %>
+<br>
+<a href="/fridges">Go Back</a>

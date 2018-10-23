@@ -5,6 +5,14 @@
       <a href="/fridges/<%= fridge.id%>">
         <%= fridge.location%>
       </a>
+      <a href="/fridges/<%= fridge.id%>/edit">
+        (Edit)
+      </a>
+      <%= link_to "Delete", fridge_path(fridge), method: :delete %>
+    
+   
     </li>
   <%end%>
+
+
 </ul>

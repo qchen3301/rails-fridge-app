@@ -1,4 +1,10 @@
-<p id="notice"><%= notice %></p>
+<h1>
+    <ul>
+    <li><%= @fridge.location %></li>
+    <li><%= @fridge.brand%></li>
+    <li><%= @fridge.size %> cubic feet</li>
+    </ul>
+    
+    <a href="/fridges">Go back</a>
 
-<%= link_to 'Edit', edit_fridge_path(@fridge) %> |
-<%= link_to 'Back', fridges_path %>
+</h1>

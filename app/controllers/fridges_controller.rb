@@ -7,7 +7,7 @@ class FridgesController < ApplicationController
 
   # GET /fridges/1
   def show
-    @fridges = Fridge.find(params[:id])
+    @fridge = Fridge.find(params[:id])
   end
 
   # GET /fridges/new
@@ -21,19 +21,21 @@ class FridgesController < ApplicationController
   end
 
   def update
-    @fridge = Fridge.find_by(id: params[:id])
+    @fridge = Fridge.find_by(params[:id])
     @fridge.update(fridge_params)
     redirect_to "/fridges/#{@fridge.id}"
   end
 
-  private
-
+  def edit
+    @fridge = Fridge.find(params[:id])
+  end
+  
   def destroy
     @fridge = Fridge.find(params[:id])
     @fridge.destroy
-    redirect_to fridges_path
+    redirect_to "/fridges"
   end
-
+  private
   def fridge_params
     params.require(:fridge).permit(:location, :brand, :size)
   end
